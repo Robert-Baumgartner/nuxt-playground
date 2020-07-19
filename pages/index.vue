@@ -14,8 +14,8 @@
 export default {
   async asyncData ({ $axios, error }) {
     try {
-      const result = await $axios.get('http://localhost:3000/events')
-      return { events: result.data }
+      const { data } = await $axios.get('http://localhost:3000/events')
+      return { events: data }
     } catch {
       error({ statusCode: 503, message: 'Unable to fetch events!' })
     }
